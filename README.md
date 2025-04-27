@@ -1,8 +1,18 @@
-# 基于 [MCP](https://modelcontextprotocol.io/introduction) 的 SSE 服务器和客户端
+# WCF-MCP
 
 [![smithery badge](https://smithery.ai/badge/@sidharthrajaram/mcp-sse)](https://smithery.ai/server/@sidharthrajaram/mcp-sse)
 
-这个项目展示了一个可用的 SSE 基础的 MCP 服务器和独立 MCP 客户端的工作模式，客户端可以使用服务器提供的工具。这个项目基于[这里](https://github.com/modelcontextprotocol/python-sdk/issues/145)的原始讨论。
+WeChatFerry的MCP封装，使用MCP客户端发送消息
+
+- 基于[wcf-http](https://github.com/yuxiaoli/wcf-http)的MCP
+
+- 基于原生[WCF python客户端](https://github.com/atorber/WeChatFerryNext/tree/master/clients/python)的MCP
+
+## MCP配置
+
+```
+tbd
+```
 
 ## 使用方法
 
