@@ -1,12 +1,12 @@
-# SSE-based Server and Client for [MCP](https://modelcontextprotocol.io/introduction)
+# 基于 [MCP](https://modelcontextprotocol.io/introduction) 的 SSE 服务器和客户端
 
 [![smithery badge](https://smithery.ai/badge/@sidharthrajaram/mcp-sse)](https://smithery.ai/server/@sidharthrajaram/mcp-sse)
 
-This demonstrates a working pattern for SSE-based MCP servers and standalone MCP clients that use tools from them. Based on an original discussion [here](https://github.com/modelcontextprotocol/python-sdk/issues/145).
+这个项目展示了一个可用的 SSE 基础的 MCP 服务器和独立 MCP 客户端的工作模式，客户端可以使用服务器提供的工具。这个项目基于[这里](https://github.com/modelcontextprotocol/python-sdk/issues/145)的原始讨论。
 
-## Usage
+## 使用方法
 
-**Note**: Make sure to supply `ANTHROPIC_API_KEY` in `.env` or as an environment variable.
+**注意**：请确保在 `.env` 文件或环境变量中提供 `ANTHROPIC_API_KEY`。
 
 ```
 uv run weather.py
@@ -34,33 +34,33 @@ Based on the current forecast for Spokane:
 Right now it's sunny and cold with a temperature of 37°F and ...
 ```
 
-## Why?
+## 为什么选择这种方式？
 
-This means the MCP server can now be some running process that agents (clients) connect to, use, and disconnect from whenever and wherever they want. In other words, an SSE-based server and clients can be decoupled processes (potentially even, on decoupled nodes). This is different and better fits "cloud-native" use-cases compared to the STDIO-based pattern where the client itself spawns the server as a subprocess.
+这意味着 MCP 服务器现在可以作为一个运行中的进程，代理（客户端）可以随时随地连接、使用并断开连接。换句话说，基于 SSE 的服务器和客户端可以是解耦的进程（甚至可能在解耦的节点上）。这与基于 STDIO 的模式不同，在 STDIO 模式中客户端本身会将服务器作为子进程启动。这种方式更适合"云原生"的使用场景。
 
-### Installing via Smithery
+### 通过 Smithery 安装
 
-To install SSE-based Server and Client for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@sidharthrajaram/mcp-sse):
+要通过 [Smithery](https://smithery.ai/server/@sidharthrajaram/mcp-sse) 自动安装用于 Claude Desktop 的基于 SSE 的服务器和客户端：
 
 ```bash
 npx -y @smithery/cli install @sidharthrajaram/mcp-sse --client claude
 ```
 
-### Server
+### 服务器
 
-`weather.py` is a SSE-based MCP server that presents some tools based on the National Weather Service APIs. Adapted from the MCP docs' [example STDIO server implementation.](https://modelcontextprotocol.io/quickstart/server)
+`weather.py` 是一个基于 SSE 的 MCP 服务器，它提供了一些基于国家气象服务 API 的工具。改编自 MCP 文档中的[示例 STDIO 服务器实现](https://modelcontextprotocol.io/quickstart/server)。
 
-By default, server runs on 0.0.0.0:8080, but is configurable with command line arguments like:
+默认情况下，服务器运行在 0.0.0.0:8080，但可以通过命令行参数进行配置：
 
 ```
 uv run weather.py --host <your host> --port <your port>
 ```
 
-### Client
+### 客户端
 
-`client.py` is a MCP Client that connects to and uses tools from the SSE-based MCP server. Adapted from the MCP docs' [example STDIO client implementation.](https://modelcontextprotocol.io/quickstart/client)
+`client.py` 是一个 MCP 客户端，可以连接并使用基于 SSE 的 MCP 服务器提供的工具。改编自 MCP 文档中的[示例 STDIO 客户端实现](https://modelcontextprotocol.io/quickstart/client)。
 
-By default, client connects to SSE endpoint provided in the command line argument like:
+默认情况下，客户端连接到命令行参数中提供的 SSE 端点：
 
 ```
 uv run client.py http://0.0.0.0:8080/sse
