@@ -1,6 +1,6 @@
 # WCF-MCP
 
-[![smithery badge](https://smithery.ai/badge/@sidharthrajaram/mcp-sse)](https://smithery.ai/server/@sidharthrajaram/mcp-sse)
+> !!! 注意注意，此项目仅为MCP探索交流目的，近期使用wcf封号严重，慎用！！！
 
 WeChatFerry的MCP封装，使用MCP客户端发送消息
 
